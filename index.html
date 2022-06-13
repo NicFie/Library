@@ -9,23 +9,46 @@
 </head>
 <body>
     <h1>My library</h1>
-    <div class="card">
-        <div>
-            <div>Title: </div>
-            <div class="user-input" id="title-input"></div>
+    <div id="card-container">
+        <div id="card" class="template">
+            <div>
+                <div>Title: </div>
+                <div class="user-input" id="title-input"></div>
+            </div>
+            <div>
+                <div>Author: </div>
+                <div class="user-input" id="author-input"></div>
+            </div>
+            <div>
+                <div>Number of pages: </div>
+                <div class="user-input" id="pages-input"></div>
+            </div>
+            <div>
+                <div>Read: </div>
+                <div class="user-input" id="read-input"></div>
+            </div>
         </div>
-        <div>
-            <div>Author: </div>
-            <div class="user-input" id="author-input"></div>
-        </div>
-        <div>
-            <div>Number of pages: </div>
-            <div class="user-input" id="pages-input"></div>
-        </div>
-        <div>
-            <div>Read: </div>
-            <div class="user-input" id="read-input"></div>
-        </div>
+    </div>
+    <button class="open-button" onclick="openForm()">Open Form</button>
+    <div class="form-popup" id="myForm">
+        <form class="form-container">
+          <h1>Add new book</h1>
+      
+          <label for="title"><b>Title: </b></label>
+          <input type="text" placeholder="Enter book title" name="title" id="title" required>
+      
+          <label for="author"><b>Author: </b></label>
+          <input type="text" placeholder="Enter author's name" name="author" id="author" required>
+      
+          <label for="pages"><b>Number of pages: </b></label>
+          <input type="number" placeholder="Enter number of pages" name="pages" id="pages" required>
+          
+          <label for="read"><b>Have you read it? </b></label>
+          <input type="checkbox" name="read" id="read" required>
+
+          <button type="submit" class="btn" id="add-book">Add book</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
     </div>
     <script src="script.js"></script>
 </body>

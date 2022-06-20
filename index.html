@@ -6,30 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overlock&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>My library</h1>
     <div id="card-container">
         <div id="card" class="template">
-            <div>
-                <div>Title: </div>
-                <div class="user-input" id="title-input"></div>
+            <div class="titles">
+                <div class="user-input" id="title-input">Harry Potter</div>
             </div>
-            <div>
-                <div>Author: </div>
-                <div class="user-input" id="author-input"></div>
-            </div>
-            <div>
-                <div>Number of pages: </div>
-                <div class="user-input" id="pages-input"></div>
-            </div>
-            <div>
-                <div>Read: </div>
-                <div class="user-input" id="read-input"></div>
+            <div class="sub-title-container">
+                <div>
+                    <div class="sub-titles">Author: </div>
+                    <div class="user-input" id="author-input">JK Rowling</div>
+                </div>
+                <div>
+                    <div class="sub-titles">Number of pages: </div>
+                    <div class="user-input" id="pages-input">900</div>
+                </div>
+                <div>
+                    <div class="sub-titles">Read: </div>
+                    <div class="user-input" id="read-input">no</div>
+                </div>
             </div>
         </div>
     </div>
-    <button class="open-button" onclick="openForm()">Open Form</button>
+    <button class="open-button" onclick="openForm()">Add book</button>
     <div class="form-popup" id="myForm">
         <form class="form-container">
           <h1>Add new book</h1>
@@ -41,7 +45,7 @@
           <input type="text" placeholder="Enter author's name" name="author" id="author" required>
       
           <label for="pages"><b>Number of pages: </b></label>
-          <input type="number" placeholder="Enter number of pages" name="pages" id="pages" required>
+          <input type="number" placeholder="Enter number of pages" name="pages" id="pages" min="1" required>
           
           <label for="read"><b>Have you read it? </b></label>
           <input type="checkbox" name="read" id="read" required>

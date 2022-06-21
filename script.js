@@ -25,9 +25,25 @@ function displayBooks() {
         const card = document.getElementById('card');
         const cardClone = card.cloneNode(true);
         cardClone.classList.remove('template');
-        cardClone.classList.add('displayed-card')
+        cardClone.classList.add('displayed-card');
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remove';
+        removeBtn.setAttribute('id', `${i}`);
+        removeBtn.addEventListener('click', () => {
+            myLibrary.splice(myLibrary.indexOf(i), 1);
+            displayBooksAgain();
+        })
+        cardClone.appendChild(removeBtn);
+        if (myLibrary[i].read == 'yes') {
+            cardClone.style.boxShadow = '#9ffbc9 0px 1px 4px';
+        } else cardClone.style.boxShadow = '#fa9da4 0px 1px 4px';
         document.getElementById('card-container').appendChild(cardClone);
     }
+}
+
+function displayBooksAgain() {
+    removeCards();
+    displayBooks();
 }
 
 const titleInput = document.getElementById('title');
@@ -86,8 +102,9 @@ addBook.addEventListener('click', (e) => {
 
 function openForm() {
     document.getElementById("myForm").style.display = "block";
-  }
-  
-  function closeForm() {
+}
+
+function closeForm() {
     document.getElementById("myForm").style.display = "none";
-  }
+}
+

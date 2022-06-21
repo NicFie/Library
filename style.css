@@ -7,15 +7,15 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   row-gap: 20px;
-  width: calc(98vw - 300px);
+  width: calc(100vw - 350px);
 }
 
-.displayed-card, .template {
-  border: black 1px solid;
+.displayed-card {
   border-radius: 15px;
   max-width: 300px;
   padding: 0;
   height: 250px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .titles {
@@ -27,6 +27,19 @@
   line-height: 50px;
   font-size: 25px;
   margin: auto;
+  position: relative; 
+}
+
+.titles > span {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  color: black;
+  font-size: 30px;
+}
+
+.titles > span:hover {
+  cursor: pointer;
 }
 
 .sub-titles {
@@ -42,18 +55,17 @@
   height: calc(200px / 3);
 }
 
-/*.template {
+.template {
     display: none;
-}*/
+}
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-    background-color: #555;
-    color: white;
+    background-color: rgb(217, 225, 250);
+    color: black;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
-    opacity: 0.8;
     position: fixed;
     bottom: 23px;
     right: 28px;
@@ -95,19 +107,18 @@
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #04AA6D;
-  color: white;
+  background-color: #9ffbc9;
+  color: black;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
   width: 100%;
   margin-bottom:10px;
-  opacity: 0.8;
 }
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red;
+  background-color: #fa9da4;
 }
 
 /* Add some hover effects to buttons */

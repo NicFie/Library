@@ -16,66 +16,67 @@ function addBookToLibrary() {
 function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         const card = document.createElement('div');
-        card.classList.add('displayed-card');
         const titles = document.createElement('div');
-        titles.classList.add('titles');
-        titles.innerHTML = myLibrary[i].title;
-        card.appendChild(titles);
-
         const subtitleContainer = document.createElement('div');
-        subtitleContainer.classList.add('sub-title-container');
-        card.appendChild(subtitleContainer);
         const subtitleOne = document.createElement('div');
-        subtitleOne.innerHTML = `Author: ${myLibrary[i].author}`;
         const subtitleTwo = document.createElement('div');
-        subtitleTwo.innerHTML = `Number of pages: ${myLibrary[i].pages}`;
-        
         const subtitleThree = document.createElement('div');
         const subtitleThreeHeading = document.createElement('div');
-        subtitleThreeHeading.innerHTML = 'Mark as read: ';
-        subtitleThree.appendChild(subtitleThreeHeading);      
-        
         const subtitleThreeSlider = document.createElement('label');
-        subtitleThreeSlider.classList.add('switch');
         const checkbox = document.createElement('input');
-        checkbox.type = "checkbox";
-        subtitleThreeSlider.appendChild(checkbox);
         const sliderSpan = document.createElement('span');
-        sliderSpan.classList.add('slider');
-        subtitleThreeSlider.appendChild(sliderSpan);
-        subtitleThree.appendChild(subtitleThreeSlider);
-        
-        subtitleContainer.appendChild(subtitleOne);
-        subtitleContainer.appendChild(subtitleTwo);
-        subtitleContainer.appendChild(subtitleThree);      
-        
         const removeBtn = document.createElement('span');
+
+        card.classList.add('displayed-card');
+        titles.classList.add('titles');
+        subtitleContainer.classList.add('sub-title-container');
+        subtitleThree.classList.add('slider-container');
+        subtitleThreeSlider.classList.add('switch');
+        sliderSpan.classList.add('slider');
+
+
+        titles.innerHTML = myLibrary[i].title;
+        subtitleOne.innerHTML = `Author: ${myLibrary[i].author}`;
+        subtitleTwo.innerHTML = `Number of pages: ${myLibrary[i].pages}`;
+        subtitleThreeHeading.innerHTML = 'Mark as read: ';
         removeBtn.innerHTML = '&#11199';
+
+        checkbox.type = "checkbox";
+
         removeBtn.addEventListener('click', () => {
             myLibrary.splice(i, 1);
-            /*card.classList.add('template');*/
             removeCards();
             displayBooks();
         })
-        titles.appendChild(removeBtn);
 
         checkbox.addEventListener('click', () => {
             if (checkbox.checked == false) {
-                card.style.boxShadow = '#fa9da4 0px 1px 4px';
+                titles.style.backgroundColor = '#fa9da4';
                 myLibrary[i].read = 'no';
             } else {
-                card.style.boxShadow = '#9ffbc9 0px 1px 4px';
+                titles.style.backgroundColor = '#9ffbc9';
                 myLibrary[i].read = 'yes';
             }
         })
 
         if (myLibrary[i].read == 'yes') {
-            card.style.boxShadow = '#9ffbc9 0px 1px 4px';
+            titles.style.backgroundColor = '#9ffbc9';
             checkbox.checked = true;
         } else {
-            card.style.boxShadow = '#fa9da4 0px 1px 4px';
+            titles.style.backgroundColor = '#fa9da4';
             checkbox.checked = false;
         }
+
+        card.appendChild(titles);
+        card.appendChild(subtitleContainer);
+        titles.appendChild(removeBtn);
+        subtitleThree.appendChild(subtitleThreeHeading);
+        subtitleThreeSlider.appendChild(checkbox);
+        subtitleThreeSlider.appendChild(sliderSpan);
+        subtitleThree.appendChild(subtitleThreeSlider);
+        subtitleContainer.appendChild(subtitleOne);
+        subtitleContainer.appendChild(subtitleTwo);
+        subtitleContainer.appendChild(subtitleThree);
         document.getElementById('card-container').appendChild(card);
     }
 }

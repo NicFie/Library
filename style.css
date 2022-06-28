@@ -3,19 +3,33 @@
     font-family: 'Overlock', Arial, Helvetica, sans-serif;
 }
 
+body {
+  background-color: rgb(1, 1, 58);
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  background-color: rgb(217, 225, 250);
+  margin: 0;
+  padding: 15px;
+}
+
 #card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   row-gap: 20px;
   width: calc(100vw - 350px);
+  margin: 15px;
 }
 
 .displayed-card {
   border-radius: 15px;
   max-width: 300px;
   padding: 0;
-  height: 250px;
+  min-height: 250px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: white;
 }
 
 .titles {
@@ -23,17 +37,17 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   text-align: center;
-  height: 50px;
-  line-height: 50px;
+  min-height: 50px;
   font-size: 25px;
   margin: auto;
+  padding: 0px 30px;
   position: relative; 
 }
 
 .titles > span {
   position: absolute;
-  top: -20px;
-  right: -10px;
+  top: -5px;
+  right: 5px;
   color: black;
   font-size: 30px;
 }
@@ -46,10 +60,12 @@
   height: 200px;
   padding: 10px;
   font-size: 20px;
+  
 }
 
 .sub-title-container > div {
   height: calc(200px / 3);
+  
 }
 
 .template {
@@ -75,8 +91,12 @@
   position: fixed;
   bottom: 0;
   right: 15px;
-  border: 3px solid #f1f1f1;
+  /*border: 3px solid #f1f1f1;*/
   z-index: 9;
+}
+
+.form-container > h2 {
+  margin-top: 0;
 }
 
 /* Add styles to the form container */
@@ -166,16 +186,21 @@
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: rgb(109, 144, 250);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px rgb(109, 144, 250);
 }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+.slider-container {
+  display: flex;
+  justify-content: space-between;
 }
 
